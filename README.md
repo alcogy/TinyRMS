@@ -1,9 +1,12 @@
 # RequestManagementSystem
 Request Management System
 
-memo commands.
+
 ```
-composer create-project --prefer-dist laravel/laravel project "11.*"
-chown www-data
+cd project
+composer install
+cp .env.example .env -- and setup your db
+php artisan key:generate
 php artisan migrate
+php artisan serve
 ```
