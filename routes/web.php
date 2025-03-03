@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RequestController;
 
 Route::get('/', function () {
-    return view('index');
+    return view('home');
 });
 
 Route::get('/requests/list', [RequestController::class, 'list']);
