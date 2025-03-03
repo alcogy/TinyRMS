@@ -4,10 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Request List</title>
 </head>
 <body>
-  <h1>{{ $id }}</h1>
-  <a href="/user/list">User List</a>
+  <h1>Requests</h1>
 </body>
 </html>

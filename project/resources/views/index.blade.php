@@ -7,7 +7,6 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Hello</h1>
-  <a href="/user/detail/1345">1345</a>
+  Login
 </body>
 </html>

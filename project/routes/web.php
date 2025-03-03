@@ -1,15 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\RequestController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-Route::get('/user/list', [UserController::class, 'list']);
-Route::get('/user/detail/{id}', [UserController::class, 'detail']);
-Route::get('/user/create', [UserController::class, 'register']);
-Route::post('/user/create', [UserController::class, 'create']);
-Route::put('/user/update', [UserController::class, 'update']);
-Route::delete('/user/delete', [UserController::class, 'delete']);
+Route::get('/requests/list', [RequestController::class, 'list']);
+Route::get('/request/detail/{id}', [RequestController::class, 'detail']);
+Route::get('/request/create', [RequestController::class, 'register']);
+Route::post('/request/create', [RequestController::class, 'create']);
+Route::put('/request/update', [RequestController::class, 'update']);
+Route::delete('/request/delete', [RequestController::class, 'delete']);
