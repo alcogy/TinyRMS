@@ -1,5 +1,5 @@
-# Request Management System
-Request Management System build by PHP/Laravel.
+# Tullamore
+Tullamore is a request management system build by Laravel/PHP.
 
 
 ## Build
