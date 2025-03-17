@@ -8,7 +8,7 @@
   <title>Tullamore</title>
 </head>
 <body>
-  <x-header />
+  <x-header user-name="{{ $user->name }}" />
   <main>
     <div class="content-wrap">
       <div class="list-head">

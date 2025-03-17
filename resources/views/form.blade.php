@@ -8,7 +8,7 @@
   <title>Request form</title>
 </head>
 <body>
-  <x-header />
+  <x-header user-name="{{ $user->name }}" />
   <main>
     <div class="form-wrap">
       <h2>Request Form</h2>
@@ -26,8 +26,10 @@
           <div>
             <label>Approver</label>
             <select name="approver_id">
-              @foreach($users as $user)
-              <option value="{{ $user->id }}">{{ $user->name }}</option>
+              @foreach($users as $u)
+              @if($u->id != $user->id)
+              <option value="{{ $u->id }}">{{ $u->name }}</option>
+              @endif
               @endforeach
             </select>
           </div>

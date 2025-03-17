@@ -8,7 +8,7 @@
   <title>Request detail</title>
 </head>
 <body>
-  <x-header />
+  <x-header user-name="{{ $user->name }}" />
   <main>
     <div class="detail-wrap">
       <div class="main-card">
