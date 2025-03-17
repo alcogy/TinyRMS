@@ -11,7 +11,10 @@
   <x-header />
   <main>
     <div class="content-wrap">
-      <h2>Request List</h2>
+      <div class="list-head">
+        <h2>Request List</h2>
+        <a href="/edit">Add Request</a>
+      </div>
       <div class="main-card">
         <table class="request-table">
           <thead>

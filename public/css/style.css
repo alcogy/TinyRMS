@@ -4,12 +4,13 @@
 html, body {
   padding: 0;
   margin: 0;
+  background-color: #e5e5e5;
 }
 
-body {
+body, input, textarea, select, option {
   font-size: 15px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background-color: #e5e5e5;
+  letter-spacing: 0.7px;
 }
 
 header.global-header {
@@ -41,8 +42,23 @@ main {
 }
 .content-wrap {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1360px;
   margin: 0 auto;
+}
+.content-wrap > div.list-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.content-wrap > div.list-head a {
+  padding: 8px 12px;
+  background-color: #15a;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+}
+.content-wrap > div.list-head a:hover {
+  opacity: 0.8;
 }
 
 .main-card {
@@ -107,9 +123,49 @@ span.status.approved {
 
 .detail-wrap div.sub-content p.label {
   margin: 0 0 8px 0;
-  color: #555;
+  color: #888;
+  font-weight: bold;
 }
 
 .detail-wrap div.sub-content p.body {
   margin: 0;
+}
+.form-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+}
+form.editor {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px;
+}
+form.editor > div label {
+  display: block;
+  font-weight: bold;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+form.editor > div input[type='text'],
+form.editor > div textarea,
+form.editor > div select {
+  padding: 12px;  
+  border-radius: 6px;
+  border: 1px solid #999;
+  width: 100%;
+}
+form.editor > div textarea {
+  height: 160px;
+}
+form.editor > div input[type='submit'] {
+  border: 0;
+  background-color: #15a;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+form.editor > div input[type='submit']:hover {
+  opacity: 0.8;
 }

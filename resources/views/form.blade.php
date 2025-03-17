@@ -10,7 +10,33 @@
 <body>
   <x-header />
   <main>
-    <h1>form</h1>
+    <div class="form-wrap">
+      <h2>Request Form</h2>
+      <div class="main-card">
+        <form action="/create" method="POST" class="editor">
+          @csrf
+          <div>
+            <label>Title</label>
+            <input type="text" placeholder="Enter title." name="title" value="">
+          </div>
+          <div>
+            <label>Body</label>
+            <textarea name="body" placeholder="Enter body"></textarea>
+          </div>
+          <div>
+            <label>Approver</label>
+            <select name="approver_id">
+              @foreach($users as $user)
+              <option value="{{ $user->id }}">{{ $user->name }}</option>
+              @endforeach
+            </select>
+          </div>
+          <div>
+            <input type="submit" type="submit">
+          </div>
+        </form>
+      </div>
+    </div>
   </main>
 </body>
 </html>
