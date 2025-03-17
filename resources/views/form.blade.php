@@ -13,22 +13,27 @@
     <div class="form-wrap">
       <h2>Request Form</h2>
       <div class="main-card">
-        <form action="/create" method="POST" class="editor">
+        <form action="{{ $req ? "/update" : "/create"}}" method="POST" class="editor">
           @csrf
+          @if ($req != null)
+            <input type="hidden" name="id" value="{{ $req->id }}">
+          @endif
           <div>
             <label>Title</label>
-            <input type="text" placeholder="Enter title." name="title" value="">
+            <input type="text" placeholder="Enter title." name="title" value="{{ $req ? $req->title : '' }}">
           </div>
           <div>
             <label>Body</label>
-            <textarea name="body" placeholder="Enter body"></textarea>
+            <textarea name="body" placeholder="Enter body">{{ $req ? $req->body : '' }}</textarea>
           </div>
           <div>
             <label>Approver</label>
             <select name="approver_id">
               @foreach($users as $u)
               @if($u->id != $user->id)
-              <option value="{{ $u->id }}">{{ $u->name }}</option>
+              <option value="{{ $u->id }}" {{ $req ? $req->approver_id == $u->id ? 'selected' : '' : '' }}>
+                {{ $u->name }}
+              </option>
               @endif
               @endforeach
             </select>

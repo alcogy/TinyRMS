@@ -13,7 +13,7 @@ class RequestController extends Controller
     {
         $user = $request->session()->get('user');
         if ($user == null) return redirect('/signin');
-        $req = Req::with(['applicant', 'approver'])->get();
+        $req = Req::with(['applicant', 'approver'])->where('approver_id', '=', $user->id)->orWhere('applicant_id', '=', $user->id)->get();
         return view('home', ['requests' => $req, 'user' => $user]);
     }
 
@@ -25,12 +25,19 @@ class RequestController extends Controller
         return view('detail', ['request' => $request, 'user' => $user]);
     }
 
-    public function form(Request $request)
+    public function form(Request $request, string $id = null)
     {
         $user = $request->session()->get('user');
         if ($user == null) return redirect('/signin');
         $users = User::all();
-        return view('form', ['users' => $users, 'user' => $user]);
+
+        $req = null;
+        if ($id != null)
+        {
+            $req = Req::where('id', $id)->first();
+        }
+
+        return view('form', ['users' => $users, 'user' => $user, 'req' => $req]);
     }
 
     public function create(Request $request)
@@ -53,13 +60,34 @@ class RequestController extends Controller
     {
         $user = $request->session()->get('user');
         if ($user == null) return redirect('/signin');
+        
+        $req = Req::where('id', '=', $request->id)->first();
+        $req->title = $request->title;
+        $req->body = $request->body;
+        $req->approver_id = $request->approver_id;
+        $req->save();
+
         return redirect('/');
     }
 
-    public function delete()
+    public function delete(Request $request)
     {
         $user = $request->session()->get('user');
         if ($user == null) return redirect('/signin');
+        $req = Req::where('id', '=', $request->id)->first();
+        $req->delete();
+        
+        return redirect('/');
+    }
+
+    public function approval(Request $request)
+    {
+        $user = $request->session()->get('user');
+        if ($user == null) return redirect('/signin');
+
+        $req = Req::where('id', '=', $request->id)->first();
+        $req->is_completed = true;
+        $req->save();
         return redirect('/');
     }
 }

@@ -37,7 +37,27 @@
             </p>
           </div>
         </div>
-      </div> 
+      </div>
+      @if ($request->approver_id == $user->id && !$request->is_completed) 
+      <div class="sub-buttons">
+        <form action="/approval" method="POST" class="approval-padding">
+          @csrf
+          <input type="hidden" value="{{$request->id}}" name="id">
+          <input type="submit" class="button" value="Approval">
+        </form>
+      </div>
+      @endif
+
+      @if ($request->applicant_id == $user->id) 
+      <div class="sub-buttons">
+        <a href="/edit/{{ $request->id }}" class="button">Edit</a>
+        <form action="/delete" method="POST" class="approval-padding" onsubmit="return confirm('Are you sure?');">
+          @csrf
+          <input type="hidden" value="{{$request->id}}" name="id">
+          <input type="submit" class="button" value="Delete">
+        </form>
+      </div>
+      @endif
     </div>
   </main>
 </body>

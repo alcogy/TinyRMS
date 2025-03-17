@@ -10,7 +10,8 @@ Route::post('/signout', [UserController::class, 'signout']);
 
 Route::get('/', [RequestController::class, 'list']);
 Route::get('/request/{id}', [RequestController::class, 'detail']);
-Route::get('/edit', [RequestController::class, 'form']);
+Route::get('/edit/{id?}', [RequestController::class, 'form']);
+Route::post('/approval', [RequestController::class, 'approval']);
 Route::post('/create', [RequestController::class, 'create']);
-Route::put('/update', [RequestController::class, 'update']);
-Route::delete('/delete', [RequestController::class, 'delete']);
+Route::post('/update', [RequestController::class, 'update']);
+Route::post('/delete', [RequestController::class, 'delete']);
