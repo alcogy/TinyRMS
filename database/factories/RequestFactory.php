@@ -18,8 +18,9 @@ class RequestFactory extends Factory
     {
         return [
             'title' => fake()->sentence(),
-            'content' => fake()->realText(255),
-            'user_id' => fake()->numberBetween(1, 20),
+            'body' => fake()->realText(255),
+            'applicant_id' => fake()->numberBetween(1, 3),
+            'approver_id' => fake()->numberBetween(4, 10),
             'is_completed' => fake()->randomNumber() % 2 == 0,
         ];
     }

@@ -4,9 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Request List</title>
+  <link rel="stylesheet" type="text/css" href="{{ asset('/css/style.css') }}">
+  <title>Request form</title>
 </head>
 <body>
-  <h1>Requests</h1>
+  <x-header />
+  <main>
+    <h1>form</h1>
+  </main>
 </body>
 </html>

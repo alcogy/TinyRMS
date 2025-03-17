@@ -3,20 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Request as Req;
 
 class RequestController extends Controller
 {
     //
     public function list() {
-        return view('request/list');
+        $requests = Req::with(['applicant', 'approver'])->get();
+        return view('home', ['requests' => $requests]);
     }
 
     public function detail(string $id) {
-        return view('request/detail', ['id' => $id]);
+        $request = Req::with(['applicant', 'approver'])->where('id', '=', $id)->first();
+        return view('detail', ['request' => $request]);
     }
 
-    public function register() {
-        return view('request/register');
+    public function form() {
+        return view('form');
     }
 
     public function create(Request $request) {
