@@ -1,5 +1,7 @@
-# Tullamore
-Tullamore is a request management system build by Laravel/PHP.
+# TinyRMS
+TinyRMS is a simple request management system.
+
+This system is build by Laravel/PHP.
 
 ## Specific
 
